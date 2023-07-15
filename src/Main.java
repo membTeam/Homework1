@@ -12,6 +12,8 @@ public class Main {
         Lesson2.task6();
         Lesson2.task7();
         Lesson2.task8();
+        Lesson2.task8Ext();
+
 
     }
 }
