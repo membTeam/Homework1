@@ -24,12 +24,14 @@ public class Lesson3 implements devlInterface {
         print("Сколько тебе лет: ");
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
-                if (scanner.nextInt() >= 18)
+                if (scanner.nextInt() >= 18) {
                     println("Ты совершеннолетний");
-                else
+                } else {
                     println("Ты не достиг совершеннолетия, нужно немного подождать");
+                }
+            } else {
+                println("Ошибка ввода. Д/быть целое число");
             }
-            else println("Ошибка ввода. Д/быть целое число");
         }
     }
 
@@ -39,13 +41,14 @@ public class Lesson3 implements devlInterface {
         print("Какая температура воздуха на улице: ");
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
-                if (scanner.nextInt() <= 5)
+                if (scanner.nextInt() <= 5) {
                     println("На улице холодно, нужно надеть шапку");
-                else
+                } else {
                     println("Сегодня тепло, можно идти без шапки");
-            }
-            else
+                }
+            } else {
                 println("Ошибка ввода. Д/быть целое число");
+            }
         }
     }
 
@@ -55,9 +58,14 @@ public class Lesson3 implements devlInterface {
         print("Скорость автомобиля по прибору сотрудника ГИБДД: ");
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
-                if (scanner.nextInt() > 60) println("Придется заплатить штраф");
-                else println("Можно ездить спокойно");
-            } else println("Ошибка ввода. Д/быть целое число");
+                if (scanner.nextInt() > 60) {
+                    println("Придется заплатить штраф");
+                } else {
+                    println("Можно ездить спокойно");
+                }
+            } else {
+                println("Ошибка ввода. Д/быть целое число");
+            }
         }
     }
 
@@ -70,18 +78,19 @@ public class Lesson3 implements devlInterface {
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 int age = scanner.nextInt();
-                if (age < 7)
+                if (age < 7) {
                     println(strStart + age + ", ему нужно ходить в детский сад");
-                else if (age >= 7 && age < 18)
+                } else if (age >= 7 && age < 18) {
                     println(strStart + age + ", ему нужно ходить в школу");
-                else if (age >= 18 && age < 24)
+                } else if (age >= 18 && age < 24) {
                     println(strStart + age + ", его место в университете");
-                else
+                } else {
                     println(strStart + age + ", ему пора ходить на работу");
-            } else
+                }
+            } else {
                 println("Ошибка ввода. Д/быть целое число");
+            }
         }
-
     }
 
     private static void task5() {
@@ -91,26 +100,30 @@ public class Lesson3 implements devlInterface {
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 int age = scanner.nextInt();
-                if (age < 5)
+                if (age < 5) {
                     println("Он не может кататься на атракционе");
-                else if (age < 14) {
+                } else if (age < 14) {
                     System.out.print("У него есть сопровождающий? (y/n) ");
                     if (scanner.hasNext()) {
                         var sNext = scanner.next().toLowerCase();
 
                         if (sNext.length() == 1) {
-                            if (sNext.equals("y") || sNext.equals("n"))
+                            if (sNext.equals("y") || sNext.equals("n")) {
                                 println("Он может кататься только в сопровождении взрослого");
-                            else println("Без сопровождения кататься нельзя");
+                            } else {
+                                println("Без сопровождения кататься нельзя");
+                            }
+                        } else {
+                            println("Ошибка ввода: д/быть одиночный символ y or n");
                         }
-                        else println("Ошибка ввода: д/быть одиночный символ y or n");
                     }
+                } else {
+                    println("Он может кататься без сопровождения взрослого");
                 }
-                else println("Он может кататься без сопровождения взрослого");
+            } else {
+                println("Ошибка ввода. Д/быть целое число");
             }
-            else  println("Ошибка ввода. Д/быть целое число");
         }
-
     }
 
     private static void task6() {
@@ -136,8 +149,9 @@ public class Lesson3 implements devlInterface {
                     println("Есть сидячие места " + ExistStandingPlaces + " и стоячие места " + numStanding);
                 }
 
-            } else
+            } else {
                 println("Ошибка ввода. Д/быть целое число");
+            }
     }
 
     private static void task7() {

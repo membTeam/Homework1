@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Lesson4 implements devlInterface {
 
     private static final String DELIMETER = "------ ";
-    // private static final String ERR = "Ошибка ввода типа значения";
+
     private static final String VERSIONOS = "Какая у Вас версия операционной системы (iOS=0 Android=1): ";
 
     private static void println(String str) {
@@ -81,7 +81,7 @@ public class Lesson4 implements devlInterface {
 
     private static void task2() {
 
-        println(DELIMETER + "task1");
+        println(DELIMETER + "task2");
 
         final int minYearPhone = 2015;
         final int minPhone = 2000,
@@ -104,14 +104,13 @@ public class Lesson4 implements devlInterface {
             } else {
                 println("""
                         Для года создания телефона используйте переменную \
-                        clientDeviceYear, в которой необходимо указать 2015 год
-                        """);
+                        clientDeviceYear, в которой необходимо указать 2015 год""");
             }
         }
     }
 
     private static void task3(){
-        println(DELIMETER + "task4");
+        println(DELIMETER + "task3");
 
         int minYear = 1900;
 
@@ -134,6 +133,44 @@ public class Lesson4 implements devlInterface {
 
     }
 
+    private static void task4(){
+        println(DELIMETER + "task4");
+
+        final int deliveryDistance = 95,
+            numberDaysFor20 = 20,
+            numberDaysFor60 = 60,
+            numberDaysFor100 = 100;
+
+            String strPrint = "";
+            if (deliveryDistance < numberDaysFor20){
+                strPrint = "Доставка карты сегодня";
+            } else if (deliveryDistance < numberDaysFor60 ){
+                strPrint = "Доставка карты завтра";
+            } else if (deliveryDistance < numberDaysFor100 ) {
+                strPrint = "Доставка карты через один день";
+            } else {
+                strPrint = "Доставка карты на такое расстояние не предусмотрено";
+            }
+
+            println(strPrint);
+    }
+
+    private static void task5(){
+        println(DELIMETER + "task5");
+
+        final int monthNumber = 12;
+
+        String strPrint = switch (monthNumber){
+            case 1,2,12 -> "Зима";
+            case 3,4,5 -> "Весна";
+            case 6,7,8 -> "Лето";
+            case 9,10,11 -> "Осень";
+            default -> "Ошибка параметра";
+        };
+
+        println(strPrint);
+    }
+
     public static void runAllTask() {
         println("********* Домашнее задание 4 *********");
 
@@ -143,6 +180,8 @@ public class Lesson4 implements devlInterface {
             task1();
             task2();
             task3();
+            task4();
+            task5();
 
         } finally {
             if (scanner != null) {
@@ -152,7 +191,3 @@ public class Lesson4 implements devlInterface {
     }
 
 }
-
-
-
-
