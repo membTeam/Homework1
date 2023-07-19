@@ -23,13 +23,13 @@ public class Lesson3 implements devlInterface {
 
         print("Сколько тебе лет: ");
         if (scanner.hasNext()) {
-            if (scanner.hasNextInt())
+            if (scanner.hasNextInt()) {
                 if (scanner.nextInt() >= 18)
                     println("Ты совершеннолетний");
                 else
                     println("Ты не достиг совершеннолетия, нужно немного подождать");
-            else
-                println("Ошибка ввода. Д/быть целое число");
+            }
+            else println("Ошибка ввода. Д/быть целое число");
         }
     }
 
@@ -37,14 +37,16 @@ public class Lesson3 implements devlInterface {
         println(DELIMETER + "run task2");
 
         print("Какая температура воздуха на улице: ");
-        if (scanner.hasNext())
-            if (scanner.hasNextInt())
+        if (scanner.hasNext()) {
+            if (scanner.hasNextInt()) {
                 if (scanner.nextInt() <= 5)
                     println("На улице холодно, нужно надеть шапку");
                 else
                     println("Сегодня тепло, можно идти без шапки");
+            }
             else
                 println("Ошибка ввода. Д/быть целое число");
+        }
     }
 
     private static void task3() {
@@ -52,13 +54,10 @@ public class Lesson3 implements devlInterface {
 
         print("Скорость автомобиля по прибору сотрудника ГИБДД: ");
         if (scanner.hasNext()) {
-            if (scanner.hasNextInt())
-                if (scanner.nextInt() > 60)
-                    println("Придется заплатить штраф");
-                else
-                    println("Можно ездить спокойно");
-            else
-                println("Ошибка ввода. Д/быть целое число");
+            if (scanner.hasNextInt()) {
+                if (scanner.nextInt() > 60) println("Придется заплатить штраф");
+                else println("Можно ездить спокойно");
+            } else println("Ошибка ввода. Д/быть целое число");
         }
     }
 
@@ -71,7 +70,7 @@ public class Lesson3 implements devlInterface {
         if (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 int age = scanner.nextInt();
-                if (age >= 2 && age < 7)
+                if (age < 7)
                     println(strStart + age + ", ему нужно ходить в детский сад");
                 else if (age >= 7 && age < 18)
                     println(strStart + age + ", ему нужно ходить в школу");
@@ -99,18 +98,17 @@ public class Lesson3 implements devlInterface {
                     if (scanner.hasNext()) {
                         var sNext = scanner.next().toLowerCase();
 
-                        if (sNext.length() == 1)
+                        if (sNext.length() == 1) {
                             if (sNext.equals("y") || sNext.equals("n"))
                                 println("Он может кататься только в сопровождении взрослого");
-                            else
-                                println("Без сопровождения кататься нельзя");
-                        else
-                            println("Ошибка ввода: д/быть одиночный символ y or n");
+                            else println("Без сопровождения кататься нельзя");
+                        }
+                        else println("Ошибка ввода: д/быть одиночный символ y or n");
                     }
-                } else
-                    println("Он может кататься без сопровождения взрослого");
-            } else
-                println("Ошибка ввода. Д/быть целое число");
+                }
+                else println("Он может кататься без сопровождения взрослого");
+            }
+            else  println("Ошибка ввода. Д/быть целое число");
         }
 
     }
@@ -127,12 +125,17 @@ public class Lesson3 implements devlInterface {
             if (scanner.hasNextInt()) {
                 int resScan = scanner.nextInt();
 
-                if (resScan > 102) {
-                    println("Для " + (resScan - allPassengeres) + " пассажиров нет мест ");
-                } else if (resScan > numSeat)
-                    println("Есть стоячие места " + (numStanding - (resScan - numSeat)));
-                else
-                    println("Есть сидячие места " + (numSeat - resScan) + " и стоячие места " + numStanding);
+                if (resScan > allPassengeres) {
+                    int noPlace = resScan - allPassengeres;
+                    println("Для " + noPlace + " пассажиров нет мест ");
+                } else if (resScan > numSeat) {
+                    int standingPlaces = numStanding - resScan - numSeat;
+                    println("Есть стоячие места " + standingPlaces);
+                } else {
+                    int ExistStandingPlaces = numSeat - resScan;
+                    println("Есть сидячие места " + ExistStandingPlaces + " и стоячие места " + numStanding);
+                }
+
             } else
                 println("Ошибка ввода. Д/быть целое число");
     }
@@ -140,13 +143,11 @@ public class Lesson3 implements devlInterface {
     private static void task7() {
         println(DELIMETER + "run task7");
 
-        int one, two, three, buffer;
-        one = 150;
-        two = 110;
-        three = 300;
+        final int one = 15,
+                two = 110,
+                three = 300;
 
-        buffer = two;
-
+        int buffer = two;
         String nameValue = "two";
 
         if (one > buffer) {
