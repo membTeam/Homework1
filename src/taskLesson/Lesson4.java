@@ -4,19 +4,11 @@ import devlAPI.APIdevl;
 import devlAPI.devlInterface;
 import java.util.Scanner;
 
+import static devlAPI.APIprintService.*;
+
 public class Lesson4 implements devlInterface {
-
     private static final String DELIMETER = "------ ";
-
     private static final String VERSIONOS = "Какая у Вас версия операционной системы (iOS=0 Android=1): ";
-
-    private static void println(String str) {
-        System.out.println(str);
-    }
-
-    private static void print(String str) {
-        System.out.print(str);
-    }
 
     private record resInput(boolean res, String mes, int resData) {
         public resInput(int resArg) {
@@ -27,8 +19,11 @@ public class Lesson4 implements devlInterface {
             this(false, str, -1);
         }
     }
+    private final static Scanner scanner;
 
-    private static Scanner scanner = null;
+    static {
+        scanner = new Scanner(System.in);
+    }
 
     private static resInput readFromScaner(int min, int max) {
         resInput resProc = null;
@@ -63,7 +58,6 @@ public class Lesson4 implements devlInterface {
     private static void task1() {
 
         println(DELIMETER + "task1");
-
         print(VERSIONOS);
         var resInput = readFromScaner(0, 1);
         if (resInput.res()) {
@@ -122,8 +116,8 @@ public class Lesson4 implements devlInterface {
 
         boolean leapYear = (
                 inputYear % 400 == 0
-                        || inputYear % 100 == 0
-                        || inputYear % 4 == 0 );
+                && inputYear % 4 == 0
+                && inputYear % 100 > 0   );
 
         if (leapYear){
             println("Год " + inputYear + " високосный");
@@ -172,22 +166,15 @@ public class Lesson4 implements devlInterface {
     }
 
     public static void runAllTask() {
+
         println("********* Домашнее задание 4 *********");
 
-        try {
-            scanner = new Scanner(System.in);
-
+        try (scanner) {
             task1();
             task2();
             task3();
             task4();
             task5();
-
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-            }
         }
     }
-
 }
