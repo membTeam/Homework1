@@ -106,18 +106,19 @@ public class Lesson4 implements devlInterface {
     private static void task3(){
         println(DELIMETER + "task3");
 
-        int minYear = 1900;
+        int minYear = 1582; // день Григорианского календаря
 
         print("Введите год для расчета (минЗначение " + minYear + ") ");
-        var resScaner = readFromScaner(minYear, Short.MAX_VALUE);
+
+        var resScaner = readFromScaner(minYear, 3000);
 
         if (!resScaner.res()) return;
+
         int inputYear = resScaner.resData();
 
-        boolean leapYear = (
-                inputYear % 400 == 0
-                && inputYear % 4 == 0
-                && inputYear % 100 > 0   );
+        boolean leapYear = (inputYear % 4 == 0
+                && (inputYear % 100 > 0
+                || (inputYear % 100 == 0 && inputYear % 400 == 0 )));
 
         if (leapYear){
             println("Год " + inputYear + " високосный");
@@ -170,6 +171,7 @@ public class Lesson4 implements devlInterface {
         println("********* Домашнее задание 4 *********");
 
         try (scanner) {
+
             task1();
             task2();
             task3();
